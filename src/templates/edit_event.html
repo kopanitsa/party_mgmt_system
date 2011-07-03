@@ -1,0 +1,67 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <title>{{ event.event_name }}</title>
+<head>
+<body>
+<center>
+    <div> {{ event.event_name }} </dev>
+    <div> {{ event.description }} </dev>
+    <br>
+	<!-- list -->
+    <div class="event_table"> 
+    <table cellspacing="0" id="event_table_list"> 
+        <thead> 
+            <th> Name</th>
+            {% for d in event.dates.all %}
+                <th>{{d.date}}</th>
+            {% endfor %}
+            <th> Comment</th>
+        </thead> 
+        <tbody>  
+        {% for person in event.persons.all %}
+            <tr>
+            <td>{{ person.name }}</td>
+            {% for d in person.availables.all %}
+                <th>{{d.available}}</th>
+            {% endfor %}
+            <td>{{ person.comment }}</td>
+        {% endfor %}
+        </tbody> 
+    </table> 
+    </div> 
+    <br>
+    <!-- input form -->
+    <div class="person_form" id="form">
+    <form action="/event_mgmt/{{event.id}}/{{event.event_name}}" method="POST">
+        <div class="fieldWrapper">
+            {{ form.name.errors }}
+            <label for="id_subject">Name:</label>
+            {{ form.name }}
+        </div>
+        <div class="fieldWrapper">
+            {% for d in event.dates.all %}
+				{{ d.date }}
+			 	<select name='availables'>
+    				<option>◯</option>
+    				<option>△</option>
+				    <option>×</option>
+			  	</select>
+			{% endfor %}
+        </div>
+        <div class="fieldWrapper">
+            <label for="id_message">Comment:</label>
+            {{ form.comment }}
+        </div>
+        <p>
+        	<input type="submit" name="register" value="Register" />
+        	<input type="submit" name="edit" value="Edit" />
+        	<input type="submit" name="delete" value="Delete" />
+        </p>
+</form>
+
+    <br>
+
+</center>
+</body>
+</html>
