@@ -6,16 +6,27 @@
 <head>
 <body>
     <!-- title -->
-    <center>
-    <div class="header" id="right"> 
-        <a href="/"><img src="/media/img/logo.png" width="640" height="100" alt="book share" /></a>
+    <div class="header" id="logo"> 
+        <a href="/event_mgmt/create_event"><img src="/media/img/logo.png" width="640" height="100" alt="book share" /></a>
     </div>
-    <div class="general" id="right">
+    <div class="general" id="description"> 
+        Let's create your event!<br>
+		Please input event name, dates, and description.<br>
+		(If you have some candidate dates, please split with ',')<br>
+    </div>
+    <!-- event creation form -->
+    <div class="general" id="creation_form">
         <form action="/event_mgmt/create_event" method="POST">
         {{ form.as_p }}
+        <br>
         <input type="submit" value="Submit" />
         </form>
-    <br>
-    </center>
+    </div>
+
+    <div class="general" id="footer">
+        Powered by <a href=https://www.djangoproject.com/>Django</a><br>
+        Admin : <a href="http://twitter.com/#!/kopanitsa">kopanitsa</a><br>
+		Source code : <a href="https://github.com/kopanitsa/party_mgmt_system">GitHub</a>
+    </div>
 </body>
 </html>

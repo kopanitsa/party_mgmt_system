@@ -7,7 +7,7 @@ body {
 	font:76%/160% "Trebuchet MS",Verdana,Arial,Helvetica,sans-serif;
 	}
 p {
-	text-align:center;
+	text-align:left;
 	}		
 a:link {
 	color:#d42945;
@@ -49,7 +49,7 @@ caption {
 	margin:1em 0 0 0;
 	margin-bottom:0;
 	caption-side:top;
-	text-align:center;
+	text-align:left;
 	}	
 tr.odd td,
 tr.odd .column1 {
@@ -63,25 +63,25 @@ td {
 	border-bottom: 1px solid #e3f1fe;
 	border-left:1px solid #e5eff8;
 	padding:.3em 1em;
-	text-align:center;
+	text-align:left;
 	}				
 th {
 	font-weight:normal;
 	color: #678197;
-	text-align:center;
+	text-align:left;
 	border-bottom: 1px solid #e3f1fe;
 	border-left:1px solid #e5eff8;
 	padding:.3em 1em;
 	}	
 thead th {
 	background:#f4f9fe;
-	text-align:center;
+	text-align:left;
 	font:bold 1.2em/2em "Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif;
 	color:#66a3d3
 	}				
 tfoot th {
 	background:#f4f9fe;
-	text-align:center;
+	text-align:left;
 	}	
 tfoot th strong {
 	font:bold 1.2em "Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif;
@@ -94,3 +94,27 @@ tfoot th em {
 	font-size: 1.1em;
 	font-style: normal;
 	}	
+	
+	
+#logo {
+    margin:0px 0px 50px 30px
+}
+#description {
+    margin:0px 0px 20px 30px
+}
+#creation_form {
+    margin:0px 0px 50px 30px
+}
+#show_event {
+    margin:50px 0px 50px 30px
+}
+#event {
+    margin:20px 0px 0px 30px
+}
+#footer{
+    position:absolute;
+    margin:0px 0px 20px 30px;
+    bottom:0px;
+    width:100%;
+}
+	

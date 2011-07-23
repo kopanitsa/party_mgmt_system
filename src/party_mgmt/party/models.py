@@ -33,7 +33,7 @@ class Date(models.Model):
 
 class Event(models.Model):
     event_name = models.CharField(u'Event Name',max_length=256)
-    dates_str = models.CharField(u'Dates',max_length=256)
+    dates_str = models.CharField(u"Dates (ex. 12/23,12/24)",max_length=256)
     description = models.CharField(u"Description",max_length=1024)
     dates = models.ManyToManyField(Date)
     persons = models.ManyToManyField(Person)
