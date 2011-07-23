@@ -2,15 +2,20 @@
 <head>
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
    <title>Create Event</title>
+   <link rel="stylesheet" type="text/css" href="/media/css/list.css" /> 
 <head>
 <body>
-<center>
+    <!-- title -->
+    <center>
+    <div class="header" id="right"> 
+        <a href="/"><img src="/media/img/logo.png" width="640" height="100" alt="book share" /></a>
+    </div>
     <div class="general" id="right">
         <form action="/event_mgmt/create_event" method="POST">
         {{ form.as_p }}
         <input type="submit" value="Submit" />
         </form>
     <br>
-</center>
+    </center>
 </body>
 </html>

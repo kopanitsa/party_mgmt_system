@@ -13,5 +13,9 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
+    
+        # page to link css and resource.
+    (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/Users/okadatakahiro/Documents/workspace/Python/party_mgmt/src/media'}),
+
 )
 
