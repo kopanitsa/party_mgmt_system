@@ -7,10 +7,12 @@
 <body>
     <!-- title -->
     <div class="header" id="logo"> 
-        <a href="/event_mgmt/create_event"><img src="/media/img/logo.png" width="640" height="100" alt="book share" /></a>
+        <a href="/event_mgmt/{{event.id}}/{{event.event_name_id}}"><img src="/media/img/title.png" width="640" height="100" alt="book share" /></a>
     </div>
-    <div> {{ event.event_name }} </dev>
-    <div> {{ event.description }} </dev>
+    <p class="event_title" id = "event_title"> 
+        {{ event.event_name }} 
+    </p>
+    <div id ="event"> {{ event.description }} </dev>
     <br>
     <center>
 	<!-- list -->
@@ -58,18 +60,18 @@
             <label for="id_message">Comment:</label>
             {{ form.comment }}
         </div>
-        <p>
+        <div>
         	<input type="submit" name="register" value="Register" />
         	<input type="submit" name="edit" value="Edit" />
         	<input type="submit" name="delete" value="Delete" />
-        </p>
+        </div>
 </form>
 
     </center>
 
 <br>
-<div>
-	<a href="http://127.0.0.1:8012/event_mgmt/create_event">Create New Event</a> 
+<div id=create_event>
+	<a href="/event_mgmt/create_event">Create New Event</a> 
 </div>
 
 </body>

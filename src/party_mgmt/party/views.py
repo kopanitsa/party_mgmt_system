@@ -36,12 +36,12 @@ def edit_event(req, event_num, event_name):
     print("edit_event")
     event = get_object_or_404(Event,id=event_num)
     form = PersonForm(req.POST or None)
-    print("name:"+event.event_name)
-    print("name:"+event.event_name_id)
+    print("name_id:"+event.event_name_id)
 
     if form.is_valid():
         # Register Person
         if len(req.POST.getlist('register')) != 0:
+            print("regitser person")
             new_person = form.save()
             av_inputs = req.POST.getlist('availables')
             for av_input in av_inputs:
@@ -53,6 +53,7 @@ def edit_event(req, event_num, event_name):
                                   {'event': event, 'form': form})
         # Edit Person
         elif len(req.POST.getlist('edit')) != 0:
+            print("edit person")
             persons = Person.objects.filter(name=form.cleaned_data['name']).filter(event__event_name__exact=event_name)
             for p in persons:
                 Available.objects.filter(person__id__exact=p.id).delete()
@@ -65,6 +66,7 @@ def edit_event(req, event_num, event_name):
                 p.save()
         # Delete Person
         elif len(req.POST.getlist('delete')) != 0:
+            print("delete person")
             person = Person.objects.filter(name=form.cleaned_data['name']).filter(event__event_name__exact=event_name)
             person.delete()
             

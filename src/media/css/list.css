@@ -111,10 +111,20 @@ tfoot th em {
 #event {
     margin:20px 0px 0px 30px
 }
+#create_event {
+    margin:80px 0px 0px 0px
+}
 #footer{
     position:absolute;
     margin:0px 0px 20px 30px;
     bottom:0px;
+    width:100%;
+}
+#event_title{
+	font-size:xx-large;
+    position:absolute;
+    margin:0px 0px 20px 60px;
+    top:50px;
     width:100%;
 }
 	
