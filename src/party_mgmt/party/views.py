@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render_to_response, get_object_or_404
 from party_mgmt.party.models import EventForm, Event, PersonForm, Date, \
     Available, Person
@@ -6,13 +7,22 @@ def create_event(req):
     print("create_event")
     form = EventForm(req.POST or None)
     if form.is_valid():
+        # save input data
         new_item = form.save()
+        # split and save date
         dates_str = new_item.dates_str
         dates = dates_str.split(',')
         for d_str in dates:
             d = Date(date=d_str)
             d.save()
             new_item.dates.add(d)
+        # split and save event id
+        event_name_id = new_item.event_name.replace(' ','_').replace('　','_').replace('/','_').replace('?','_').replace('?','_')
+        event_name_id = event_name_id.replace(';','_').replace(':','_').replace('@','_').replace('&','_').replace('=','_')
+        event_name_id = event_name_id.replace('+','_').replace('$','_').replace(',','_')
+        new_item.event_name_id = event_name_id
+#        new_item.event_name_id = new_item.event_name
+
         return render_to_response('show_event.html',
                                   {'event': new_item})
 

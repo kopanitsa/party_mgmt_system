@@ -35,6 +35,7 @@ class Event(models.Model):
     event_name = models.CharField(u'Event Name',max_length=256)
     dates_str = models.CharField(u"Dates (ex. 12/23,12/24)",max_length=256)
     description = models.CharField(u"Description",max_length=1024)
+    event_name_id = models.CharField(u'null',max_length=256)
     dates = models.ManyToManyField(Date)
     persons = models.ManyToManyField(Person)
 
@@ -47,4 +48,4 @@ class Event(models.Model):
 class EventForm(forms.ModelForm):
     class Meta:
         model = Event
-        exclude = ['persons','dates'] 
+        exclude = ['persons','dates', 'event_name_id'] 
