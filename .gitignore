@@ -1,0 +1,8 @@
+.DS_Store
+.project
+.pydevproject
+.settings
+src/party_mgmt/*.pyc
+src/party_mgmt/*.db
+src/party_mgmt/party/*.pyc
+src/templates/.tmp*
