@@ -5,10 +5,14 @@
    <link rel="stylesheet" type="text/css" href="/media/css/list.css" /> 
 <head>
 <body>
-<center>
+    <!-- title -->
+    <div class="header" id="logo"> 
+        <a href="/event_mgmt/create_event"><img src="/media/img/logo.png" width="640" height="100" alt="book share" /></a>
+    </div>
     <div> {{ event.event_name }} </dev>
     <div> {{ event.description }} </dev>
     <br>
+    <center>
 	<!-- list -->
     <div class="event_table"> 
     <table cellspacing="0" id="event_table_list"> 
@@ -34,7 +38,7 @@
     <br>
     <!-- input form -->
     <div class="person_form" id="form">
-    <form action="/event_mgmt/{{event.id}}/{{event.event_name}}" method="POST">
+    <form action="/event_mgmt/{{event.id}}/{{event.event_name_id}}" method="POST">
         <div class="fieldWrapper">
             {{ form.name.errors }}
             <label for="id_subject">Name:</label>
@@ -61,11 +65,11 @@
         </p>
 </form>
 
-<br>
-</center>
+    </center>
 
+<br>
 <div>
-	<a href="http://127.0.0.1:8010/event_mgmt/create_event">Create New Event</a> 
+	<a href="http://127.0.0.1:8012/event_mgmt/create_event">Create New Event</a> 
 </div>
 
 </body>

@@ -17,11 +17,13 @@ def create_event(req):
             d.save()
             new_item.dates.add(d)
         # split and save event id
-        event_name_id = new_item.event_name.replace(' ','_').replace('　','_').replace('/','_').replace('?','_').replace('?','_')
-        event_name_id = event_name_id.replace(';','_').replace(':','_').replace('@','_').replace('&','_').replace('=','_')
-        event_name_id = event_name_id.replace('+','_').replace('$','_').replace(',','_')
+        event_name_id = new_item.event_name.replace(' ','_').replace('　','_').replace('/','_').replace('?','_')
+        event_name_id = event_name_id.replace(';','_').replace('；','_').replace('@','_').replace('＠','_').replace('=','_')
+        event_name_id = event_name_id.replace(':','_').replace('：','_').replace('&','_').replace('＆','_').replace('＝','_')
+        event_name_id = event_name_id.replace('+','_').replace('＋','_').replace(',','_').replace('?','_').replace('？','_')
+        event_name_id = event_name_id.replace('&','_').replace('＄','_').replace('、','_').replace('.','_').replace('。','_')
         new_item.event_name_id = event_name_id
-#        new_item.event_name_id = new_item.event_name
+        new_item.save()
 
         return render_to_response('show_event.html',
                                   {'event': new_item})
@@ -34,6 +36,8 @@ def edit_event(req, event_num, event_name):
     print("edit_event")
     event = get_object_or_404(Event,id=event_num)
     form = PersonForm(req.POST or None)
+    print("name:"+event.event_name)
+    print("name:"+event.event_name_id)
 
     if form.is_valid():
         # Register Person
